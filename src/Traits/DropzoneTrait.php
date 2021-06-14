@@ -12,7 +12,7 @@ use Prodixx\DropzoneFieldForBackpack\Http\Requests\DropzoneRequest;
 
 trait DropzoneTrait
 {
-    protected function setupModerateRoutes($segment, $routeName, $controller)
+    protected function setupDropzoneRoutes($segment, $routeName, $controller)
     {
         Route::post($segment . '/dropzone-add', [
             'as'        => $routeName . '.dropzone-add',
