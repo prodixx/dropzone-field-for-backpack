@@ -91,7 +91,7 @@
                 image_height    : "{{ $field['image_height'] ?? 500 }}",
                 entry           : "{{ $crud->entry->id }}"
             },
-            url: "{{ route( Str::lower(class_basename($crud->model)) . '.dropzone-add') }}",
+            url: "{{ route( Str::lower(str_replace(config('backpack.base.route_prefix').'/', '', $crud->route)) . '.dropzone-add') }}",
             acceptedFiles: "{{ $field['mimes'] ?? 'image/*' }}",
             maxFilesize: {{ $field['max_file_size'] ?? 3 }},
             headers: {
@@ -134,7 +134,7 @@
             });
             images.pop(this.value);
             $.ajax({
-                url: "{{ route( Str::lower(class_basename($crud->model)) . '.dropzone-remove') }}",
+                url: "{{ route( Str::lower(str_replace(config('backpack.base.route_prefix').'/', '', $crud->route)) . '.dropzone-remove') }}",
                 type: 'POST',
                 data: {
                     entry           : {{ $crud->entry->id }},
