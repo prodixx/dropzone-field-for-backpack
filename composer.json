@@ -15,7 +15,7 @@
     ],
     "require": {
         "illuminate/support": "~7|~8",
-        "backpack/crud": "^4.1.0",
+        "backpack/crud": "^4.1.0|^5.0",
         "intervention/image": "^2.5"
     },
     "require-dev": {
