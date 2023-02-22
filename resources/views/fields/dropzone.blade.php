@@ -89,6 +89,7 @@
                 slug            : "{{ $crud->entry->slug ?? '' }}",
                 image_width     : "{{ $field['image_width'] ?? 500 }}",
                 image_height    : "{{ $field['image_height'] ?? 500 }}",
+                webp            : "{{ $field['webp'] ?? false }}",
                 entry           : "{{ $crud->entry->id }}"
             },
             url: "{{ route( Str::lower(str_replace(config('backpack.base.route_prefix').'/', '', $crud->route)) . '.dropzone-add') }}",

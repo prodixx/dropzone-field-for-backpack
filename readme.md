@@ -50,6 +50,7 @@ class ProductCrudController extends CrudController
                 'image_height'     => 600,
                 'mimes'            => 'image/*',
                 'max_file_size'    => 5, // MB
+                'webp'             => true, // (optional) also save webp version
                 'view_namespace'   => 'prodixx.dropzone-field-for-backpack::fields',
                 'thumb_prefix'     => '',
                 // 'hint'          => 'Some info', // (optional) some text that is shown under the field
@@ -89,6 +90,7 @@ cp -i vendor/prodixx/dropzone-field-for-backpack/src/resources/views/fields/drop
             'image_height'     => 600,
             'mimes'            => 'image/*',
             'max_file_size'    => 5, // MB
+            'webp'             => true,
 -           'view_namespace' => 'prodixx.dropzone-field-for-backpack::fields'
             'thumb_prefix'     => '',
             // 'hint'          => 'Some info', // (optional) some text that is shown under the field

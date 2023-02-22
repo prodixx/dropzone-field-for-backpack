@@ -38,9 +38,15 @@ trait DropzoneTrait
 
             $big_image = \Image::make($image)->fit($request->image_width, $request->image_height, function ($constraint) {
                 $constraint->upsize();
-            })->stream();
+            });
 
-            \Storage::disk($request->disk)->put($file_path, $big_image->__toString());
+            \Storage::disk($request->disk)->put($file_path, (string) $big_image->stream());
+
+            if ($request->webp) {
+                $webp_file_path = $request->destination_path . '/' . $request->entry . '/' . pathinfo($filename, PATHINFO_FILENAME) . '.webp';
+
+                \Storage::disk($request->disk)->put($webp_file_path, (string) $big_image->encode('webp', 70)->stream());
+            }
 
             return response()->json([
                 'success' => true,
@@ -64,6 +70,7 @@ trait DropzoneTrait
 
             \Storage::disk($request->disk)->delete([
                 $request->destination_path . '/' . $request->entry . '/' . $request->image_path,
+                $request->destination_path . '/' . $request->entry . '/' . pathinfo($request->image_path, PATHINFO_FILENAME) . '.webp',
             ]);
 
             return response()->json(['success' => true]);
