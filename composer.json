@@ -14,7 +14,7 @@
         "Laravel", "Backpack", "Backpack for Laravel", "Backpack Addon", "DropzoneFieldForBackpack"
     ],
     "require": {
-        "illuminate/support": "^7.0||^8.0||^9.0",
+        "illuminate/support": "^7.0||^8.0||^9.0||^10.0",
         "backpack/crud": "^4.1.0|^5.0",
         "intervention/image": "^2.5"
     },
